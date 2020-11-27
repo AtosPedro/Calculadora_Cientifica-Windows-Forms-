@@ -114,15 +114,23 @@ namespace Calculadora_Cientifica
 
         private void btn_clear1_Click(object sender, EventArgs e)
         {
-            if (values.Count != 0 )
-                values.Pop();
-            
+            int number = 0;
+            if (values.Count != 0)
+            {
+                number = values.Pop();
+                MessageBox.Show($"O número {number} foi retirado da pilha", "Retirar Número", MessageBoxButtons.OK);
+            }
+
         }
 
         private void btn_clearall_Click(object sender, EventArgs e)
         {
             if (values.Count != 0)
+            {
                 values.Clear();
+                MessageBox.Show("Pilha esvaziada com sucesso", "Limpar a Pilha", MessageBoxButtons.OK);
+            }
+                
            
         }
 
