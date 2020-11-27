@@ -108,6 +108,7 @@
             this.btn_enter.Text = "Enter";
             this.btn_enter.UseVisualStyleBackColor = true;
             this.btn_enter.Click += new System.EventHandler(this.btn_enter_Click);
+            
             // 
             // btn_operator4
             // 

@@ -54,7 +54,7 @@ namespace Calculadora_Cientifica
                         }
                         else if (operators == "-")
                         {
-                            result = (num1 - x) * -1;                            
+                            result = (num1 - x) * -1;
                             values.Push(result);
                             result_number.Text = Convert.ToString(result);
                             txt_values.Text = "";
@@ -93,7 +93,14 @@ namespace Calculadora_Cientifica
             }
             else
             {
-                values.Push(Convert.ToInt32(txt_values.Text));
+                string test = txt_values.Text;
+
+                bool isNumeric = int.TryParse(test, out _);
+
+                if (isNumeric)
+                    values.Push(Convert.ToInt32(txt_values.Text));
+                else
+                    MessageBox.Show("Numero Inválido", "Erro", MessageBoxButtons.OK);
 
                 txt_values.Text = "";
             }
@@ -105,5 +112,7 @@ namespace Calculadora_Cientifica
             Button bt = (Button)sender;
             txt_values.Text = bt.Text;
         }
+
+
     }
 }
