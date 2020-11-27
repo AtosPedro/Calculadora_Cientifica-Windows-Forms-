@@ -45,35 +45,34 @@ namespace Calculadora_Cientifica
                     {
                         int x = Convert.ToInt32(values.Pop());
 
-                        if (operators == "+")
+                        switch (operators)
                         {
-                            result = num1 + x;
-                            values.Push(result);
-                            result_number.Text = Convert.ToString(result);
-                            txt_values.Text = "";
+                            case "+":
+                                result = num1 + x;
+                                values.Push(result);
+                                result_number.Text = Convert.ToString(result);
+                                txt_values.Text = "";
+                                break;
+                            case "-":
+                                result = (num1 - x) * -1;
+                                values.Push(result);
+                                result_number.Text = Convert.ToString(result);
+                                txt_values.Text = "";
+                                break;
+                            case "*":
+                                result = num1 * x;
+                                values.Push(result);
+                                result_number.Text = Convert.ToString(result);
+                                txt_values.Text = "";
+                                break;
+                            case "/":
+                                result = x / num1;
+                                values.Push(result);
+                                result_number.Text = Convert.ToString(result);
+                                txt_values.Text = "";
+                                break;
                         }
-                        else if (operators == "-")
-                        {
-                            result = (num1 - x) * -1;
-                            values.Push(result);
-                            result_number.Text = Convert.ToString(result);
-                            txt_values.Text = "";
 
-                        }
-                        else if (operators == "*")
-                        {
-                            result = num1 * x;
-                            values.Push(result);
-                            result_number.Text = Convert.ToString(result);
-                            txt_values.Text = "";
-                        }
-                        else if (operators == "/")
-                        {
-                            result = x / num1;
-                            values.Push(result);
-                            result_number.Text = Convert.ToString(result);
-                            txt_values.Text = "";
-                        }
                     }
                     // Erro - um valor e um operador
                     else
@@ -113,6 +112,30 @@ namespace Calculadora_Cientifica
             txt_values.Text = bt.Text;
         }
 
+        private void btn_clear1_Click(object sender, EventArgs e)
+        {
+            values.Pop();
+        }
 
+        private void btn_clearall_Click(object sender, EventArgs e)
+        {
+            values.Clear();
+        }
+
+        private void informaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Desenvolvido por: Atos Pedro Ferreira Rocha" +
+                "\nContagem, MG" +
+                "\nE-mail: atospedrocontato@gmail.com",
+                 "Info",
+                MessageBoxButtons.OK);
+        }
+
+        private void elementosNaPilhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                $"Atualmente possuem {values.Count} números na pilha", "Pilha", MessageBoxButtons.OK);
+        }
     }
 }
