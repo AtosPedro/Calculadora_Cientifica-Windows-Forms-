@@ -114,12 +114,16 @@ namespace Calculadora_Cientifica
 
         private void btn_clear1_Click(object sender, EventArgs e)
         {
-            values.Pop();
+            if (values.Count != 0 )
+                values.Pop();
+            
         }
 
         private void btn_clearall_Click(object sender, EventArgs e)
         {
-            values.Clear();
+            if (values.Count != 0)
+                values.Clear();
+           
         }
 
         private void informaçõesToolStripMenuItem_Click(object sender, EventArgs e)
